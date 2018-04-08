@@ -16,18 +16,21 @@ const twit = new twitter({
     access_token_secret: nconf.get('TWITTER_ACCESS_TOKEN_SECRET')
 });
 
-
 // Attach to filter stream
-//const tweetStream = twit.stream('statuses/sample');
 const tweetStream = twit.stream('statuses/filter', {track: ['football', 'javascript']});
+const msg = fs.createWriteStream(__dirname + '/tweetMsg.txt'); // Saving to a file
 
 // On tweet
-tweetStream.on('tweet', (tweet) => {
-    console.log('-----------------------------------------------------------------------------------');
-    console.log('screen_name:', tweet.user.screen_name);
-    console.log('text:', tweet.text);
-    console.log('');
-    console.log('');
+tweetStream.on('tweet',  (tweet) => {
+    msg.write(`screen_name: ${tweet.user.screen_name}  
+    text:  ${tweet.text}`); // Selecting the parameters to save
+    console.log(`screen_name: ${tweet.user.screen_name}
+        text: ${tweet.text}
+        
+        `); // Output to console
+    app.get('/', (req, res) =>{
+        res.send(`${tweet.user.screen_name}  :  ${tweet.text}`);
+    }); // Output to Server
 });
 
 // Adding Server port
