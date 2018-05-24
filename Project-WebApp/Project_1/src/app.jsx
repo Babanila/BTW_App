@@ -1,44 +1,57 @@
 "use strict"
 
-import {Provider} from 'react-redux'
-import {createStore, applyMiddleware} from 'redux'
-import {composeWithDevTools} from 'redux-devtools-extension'
-import React from 'react'
+import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
-import {Display} from './display'
-import {Operator} from './operator'
-import {Digit} from './digit'
-import './calculatorStyle.css'
+import {createStore} from 'redux'
+import {devToolsEnhancer} from 'redux-devtools-extension'
+import {Provider, connect} from 'react-redux'
+import Projects from './project'
+import AddProject from './addproject'
 
-
-const initialState = 0;
-function reducer(state ={ initialState }, action){
-    return state
-}
 
 class App extends React.Component {
+    constructor(){
+        super();
+        this.state = {
+            projects: []
+        }
+    }
+
+    componentWillMount(){
+        this.setState({
+            projects:[
+                {
+                    name: 'Baba',
+                    title: 'Business Website',
+                    categories: 'Web Design'
+                },
+                {
+                    name: 'Akin',
+                    title: 'Social App',
+                    categories: 'Android Development'
+                },
+                {
+                    name: 'Ola',
+                    title: 'Ecommerce Shopping Cart',
+                    categories: 'IOS development'
+                }
+            ]
+        });
+    }
+
     render() {
-        return <div className="ADiv">
-            <Display/>
-            <Digit/>
-            <Operator/>
-        </div>
+
+        return (
+            <div className="App">
+                <AddProject /><br />
+                <Projects projects={this.state.projects} />
+            </div>);
     }
 }
 
 
-const store = createStore(
-    reducer, composeWithDevTools(applyMiddleware())
-)
-
-
 ReactDOM.render(
-    <Provider store={store}>
-        <div>
-            <App/>
-        </div>
-    </Provider>,
-    document.getElementById('main')
-)
-
-
+    <div>
+        <App/>
+    </div>,
+    document.getElementById('main'));

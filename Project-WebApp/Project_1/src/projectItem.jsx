@@ -1,17 +1,18 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom'
 
 
-class ProjectItem extends React.Component {
+export default class ProjectItem extends React.Component {
     render() {
 
         return (
-            <div className="ProjectItem">
-                We plenty for here
-            </div>);
+              <div>
+               <li>
+                   {this.props.project.name} - {this.props.project.title} - {this.props.project.categories}
+               </li>
+              </div>
+        );
     }
 }
 
 
-export default ProjectItem;
 

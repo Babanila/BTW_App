@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/CSS-Codes" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ES6" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/HTML-Codes" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Images" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/JS-Codes" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/NodeJS" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/fileview" vcs="Git" />
+  </component>
+</project>

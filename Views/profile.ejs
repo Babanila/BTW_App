@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Engines</title>
+    <link rel="stylesheet" type="text/css" href="/Users/becky/Documents/GitHub/CSS-Codes/style.css" />
+</head>
+
+<body>
+<% include partial/nav.ejs %>
+<h1> Welcome <%= person %></h1><br><br>
+<h1> The Story Begins ...</h1>
+<p> The story of my life, Itan aye mi.
+    There was a man named <b> you </b>, very arrogant in behaviour and callous in nature.<br>
+    Despite his ways, God still show him mercy that he was bless more than the people <br>
+    around him. He still continue in his ways and ......<br>
+    But we should all remember that a dog is always a dog.
+</p>
+<br>
+
+    <strong>Details of <%= person %></strong><br>
+    <strong> Age: </strong> <%= data.age %><br>
+    <strong> Profession: </strong> <%= data.profession%><br>
+
+
+    <div>
+    <strong> Hobbies </strong>
+    <ul>
+        <% data.hobbies.forEach(function(item){ %>
+                <li> <%= item %></li>
+        <% }); %>
+    </ul>
+    </div>
+
+
+</body>
+</html>

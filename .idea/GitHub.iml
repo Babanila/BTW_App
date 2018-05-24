@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/.tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/temp" />
+      <excludeFolder url="file://$MODULE_DIR$/tmp" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="GitHub" level="application" />
+    <orderEntry type="library" name="@types/node" level="application" />
+    <orderEntry type="library" name="@types/babel-core" level="application" />
+    <orderEntry type="library" name="@types/babel-plugin-syntax-jsx" level="application" />
+    <orderEntry type="library" name="@types/babel-plugin-react-pug" level="application" />
+    <orderEntry type="library" name="@types/babel-code-frame" level="application" />
+    <orderEntry type="library" name="@types/babel-generator" level="application" />
+    <orderEntry type="library" name="@types/babel-traverse" level="application" />
+    <orderEntry type="library" name="@types/babel-template" level="application" />
+    <orderEntry type="library" name="@types/babel-webpack-plugin" level="application" />
+    <orderEntry type="library" name="@types/babel-types" level="application" />
+    <orderEntry type="library" name="@types/babelify" level="application" />
+  </component>
+</module>

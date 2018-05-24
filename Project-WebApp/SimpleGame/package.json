@@ -1,7 +1,7 @@
 {
-  "name": "Project_1",
+  "name": "Simple_Game",
   "version": "1.0.0",
-  "description": "JSX practice with ES6",
+  "description": "Simple Game Design",
   "private": true,
   "scripts": {
     "build": "npx webpack --mode production",
@@ -11,7 +11,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/babanila/Simple_Button.git"
+    "url": "git+https://github.com/babanila/Simple_Game.git"
   },
   "dependencies": {
     "react": "^16.2.0",

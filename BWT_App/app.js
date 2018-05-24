@@ -25,8 +25,7 @@ tweetStream.on('tweet',  (tweet) => {
     msg.write(`screen_name: ${tweet.user.screen_name}  
     text:  ${tweet.text}`); // Selecting the parameters to save
     console.log(`screen_name: ${tweet.user.screen_name}
-        text: ${tweet.text}
-        
+        text: ${tweet.text}  
         `); // Output to console
     app.get('/', (req, res) =>{
         res.send(`${tweet.user.screen_name}  :  ${tweet.text}`);

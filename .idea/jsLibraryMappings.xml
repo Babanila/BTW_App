@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptLibraryMappings">
+    <file url="PROJECT" libraries="{@types/babel-code-frame, @types/babel-core, @types/babel-generator, @types/babel-plugin-react-pug, @types/babel-plugin-syntax-jsx, @types/babel-template, @types/babel-traverse, @types/babel-types, @types/babel-webpack-plugin, @types/babelify, @types/node, GitHub}" />
+    <includedPredefinedLibrary name="Node.js Core" />
+  </component>
+</project>

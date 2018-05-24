@@ -1,16 +1,8 @@
 import React, { Component } from 'react';
 
-class Addproject1 extends React.Component {
-
-    /*   static defaultProps = {
-            categories: [" Web Design ", " Android Development ", " IOS development " ]
-        } */
+export default class Addproject extends React.Component {
 
     render() {
-      /* let categoryOptions = this.props.categories.map(category => {
-            return  <option key={category} value={category}>{category}</option>
-        }); */
-
         return (
             <div>
                 <h3> My App</h3>
@@ -34,27 +26,18 @@ class Addproject1 extends React.Component {
     }
 }
 
-export default AddProject;
 
 /*
+
+      static defaultProps = {
+            categories: [" Web Design ", " Android Development ", " IOS development " ]
+        }
 
 let categoryOptions = this.props.categories.map(category => {
                return  (<option key={category} value="category">{category}</option>);
             });
 
 
-
-<form onSubmit={this.handleSubmit}>
-       <div>
-           <label>Title</label><br />
-           <input type="text" ref="title" />
-       </div>
-       <div>
-          <label>Category</label><br />
-          <select ref="category">
-              {categoryOptions}
-         </select>
-      </div>
-   </form> */
+*/
 
 

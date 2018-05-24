@@ -1,16 +1,16 @@
 {
-  "name": "socket.io-twitter-example",
-  "version": "0.0.1",
+  "name": "Weather-Forcast-App",
+  "version": "1.0.0",
   "private": "true",
   "dependencies": {
-    "express": "4.16.3",
-    "twit": "2.2.9",
+    "request": "2.85.0",
+    "yargs": "11.0.0",
     "nconf": "0.10.0"
   },
   "author": "Babajide Williams",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/babanila/BWT_App.git"
+    "url": "git+https://github.com/babanila/Weather-Forcast-App.git"
   }
 }

@@ -4,81 +4,93 @@ import {Provider} from 'react-redux'
 import {createStore, applyMiddleware} from 'redux'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import React from 'react'
+import SafeEval from 'safe-eval'
 import { Component } from 'react'
 import ReactDOM from 'react-dom'
 import './calculatorStyle.css'
 
 
-const number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
-const operationSymbol = ["+", "-", "/", "*", ".", "C", "="];
+// Functional Component
+const DisplayScreen = (props) => (<input className="display" type='text' value={props.expression} disabled='true' />);
 
 
-function reducer(state ={ }, action){
-    return state
-}
-class MyButton extends React.Component {
-
-
+class Button extends React.Component {
     constructor() {
-        super()
+        super();
+
+        this.onClick = this.onClick.bind(this);
     }
 
-    clicked(text){console.log(text);}
+    onClick() {
+        this.props.onButtonPressed(this.props.text);
+    }
+
+    render() {
+        return (<button className="DStyle" onClick={this.onClick}>{this.props.text}</button>
+        )
+    }
+}
+
+
+class App extends React.Component {
+    constructor () {
+        super();
+
+        this.state = {
+            expression: ''
+        }
+
+        this.onButtonPressed = this.onButtonPressed.bind(this);
+        //this.onEvaluatePressed = this.onEvaluatePressed.bind(this);
+        //this.onDeletePressed = this.onDeletePressed.bind(this);
+    }
+
+
+    onButtonPressed(text) {
+        if (text === "=") {
+            const result = SafeEval(this.state.expression);
+            this.setState({expression: result.toString()});
+        }
+
+        else if (text == "C") {
+            this.setState((prev) => ({
+                expression: prev.expression.length <= 1 ? ' ' : prev.expression.slice(0, -1)}));
+        }
+        else
+            this.setState((prev) => ({expression: prev.expression + text}));
+        console.log(text);
+    }
+
+
+
 
 
     render() {
-        return <div>
+        const buttonNumbers = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0, "."].map((number) => {
+            return (
+                <Button text={number} key={number} onButtonPressed={this.onButtonPressed}/>)});
 
-            <div>
-                <button className="display"> </button>
-            </div>
+        const buttonOperators = ["+", "-", "/", "*", "C", "="].map((operator) => {
+            return (
+                <Button text={operator} key={operator} onButtonPressed={this.onButtonPressed}/>)});
 
-            <div>
-                <button className="buttonStyle" onClick={ (e) => {this.clicked(number[0])} }>{number[0]}</button>
-                <button className="buttonStyle" onClick={ (e) => {this.clicked(number[1])} }>{number[1]}</button>
-                <button className="buttonStyle" onClick={ (e) => {this.clicked(number[2])}}>{number[2]}</button>
-                <button className="buttonStyle" onClick={ (e) => {this.clicked(operationSymbol[2])} }>{operationSymbol[2]}</button>
-            </div>
+        return (
+            <div className="AD">
+                <div><DisplayScreen expression={this.state.expression}/></div>
+                 {buttonNumbers}
+                {buttonOperators}
 
-            <div>
-                <button className="buttonStyle" onClick={ (e) => {this.clicked(number[3])} }>{number[3]}</button>
-                <button className="buttonStyle" onClick={ (e) => {this.clicked(number[4])} }>{number[4]}</button>
-                <button className="buttonStyle" onClick={ (e) => {this.clicked(number[5])} }>{number[5]}</button>
-                <button className="buttonStyle" onClick={ (e) => {this.clicked(operationSymbol[3])} }>{operationSymbol[3]}</button>
             </div>
-
-            <div>
-                <button className="buttonStyle" onClick={ (e) => {this.clicked(number[6])} }>{number[6]}</button>
-                <button className="buttonStyle" onClick={ (e) => {this.clicked(number[7])} }>{number[7]}</button>
-                <button className="buttonStyle" onClick={ (e) => {this.clicked(number[8])} }>{number[8]}</button>
-                <button className="buttonStyle" onClick={ (e) => {this.clicked(operationSymbol[2])} }>{operationSymbol[1]}</button>
-            </div>
-
-            <div>
-                <button className="buttonStyle" onClick={ (e) => {this.clicked(number[9])} }>{number[9]}</button>
-                <button className="buttonStyle" onClick={ (e) => {this.clicked(operationSymbol[4])} }>{operationSymbol[4]}</button>
-                <button className="buttonStyle" onClick={ (e) => {this.clicked(operationSymbol[6])} }>{operationSymbol[6]}</button>
-                <button className="buttonStyle" onClick={ (e) => {this.clicked(operationSymbol[0])} }>{operationSymbol[0]}</button>
-            </div>
-
-            <div>
-                <button className="buttonStyleC" onClick={ (e) => {this.clicked(operationSymbol[5])} }>{operationSymbol[5]}</button>
-            </div>
-        </div>
+        );
     }
 }
 
-const store = createStore(
-    reducer, composeWithDevTools(applyMiddleware())
-)
+// {numberKeys}
 
 ReactDOM.render(
-    <Provider store={store}>
-        <div>
-            <MyButton />
-        </div>
-    </Provider>,
+    <div>
+        <App />
+    </div>,
     document.getElementById('main')
+
 )
-
-
